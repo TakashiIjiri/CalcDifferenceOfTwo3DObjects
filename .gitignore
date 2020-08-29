@@ -10,6 +10,8 @@
 *.userosscache
 *.sln.docstates
 
+Simple3DObjectsViewer/Simple3DObjectsViewer/3rdparty/*
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
