@@ -121,7 +121,7 @@
     <Link>
       <AdditionalDependencies />
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>./3rdparty/glew/lib/Release/x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>./3rdparty/glew/lib/Release/x64;../packages/opencvcontrib.3.1.0/build/native/lib/x64/v140/Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -162,7 +162,19 @@
       <DependentUpon>MainForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\opencvcontrib.redist.3.1.0\build\native\opencvcontrib.redist.targets" Condition="Exists('..\packages\opencvcontrib.redist.3.1.0\build\native\opencvcontrib.redist.targets')" />
+    <Import Project="..\packages\opencvcontrib.3.1.0\build\native\opencvcontrib.targets" Condition="Exists('..\packages\opencvcontrib.3.1.0\build\native\opencvcontrib.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\opencvcontrib.redist.3.1.0\build\native\opencvcontrib.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\opencvcontrib.redist.3.1.0\build\native\opencvcontrib.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\opencvcontrib.3.1.0\build\native\opencvcontrib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\opencvcontrib.3.1.0\build\native\opencvcontrib.targets'))" />
+  </Target>
 </Project>

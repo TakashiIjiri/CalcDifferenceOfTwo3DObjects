@@ -209,3 +209,19 @@ System::Void MainForm::m_btn_normalize2_Click(System::Object^ sender, System::Ev
   RedrawMainPanel();
 }
 
+
+System::Void MainForm::m_btn_alignobjs_Click(
+    System::Object^ sender, System::EventArgs^ e)
+{
+  TCore::GetInst()->AlignObjsByICP();
+  RedrawMainPanel();
+}
+
+System::Void MainForm::m_btn_calcdiff_Click(
+    System::Object^ sender, System::EventArgs^ e)
+{
+  TCore::GetInst()->CalcDifferenceOfTwoObjs();
+  RedrawMainPanel();
+}
+
+

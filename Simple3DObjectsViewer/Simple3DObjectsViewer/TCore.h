@@ -41,6 +41,9 @@ public:
 
   void NormalizeSize_MeanDistFromGC();
   void NormalizeSize_DistFathestVerts();
+  void CalcDifferenceOfTwoObjs();
+  void AlignObjsByICP();
+
 };
 
 

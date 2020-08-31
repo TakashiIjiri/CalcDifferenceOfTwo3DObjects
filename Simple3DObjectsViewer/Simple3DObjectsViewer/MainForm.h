@@ -24,6 +24,8 @@ namespace Simple3DObjectsViewer {
 	private: System::Windows::Forms::Button^ m_btn_loadobjcts;
 	private: System::Windows::Forms::Button^ m_btn_normalize1;
 	private: System::Windows::Forms::Button^ m_btn_normalize2;
+	private: System::Windows::Forms::Button^ m_btn_alignobjs;
+	private: System::Windows::Forms::Button^ m_btn_calcdiff;
 
 				 OglForCLI* m_ogl;
 
@@ -71,6 +73,8 @@ namespace Simple3DObjectsViewer {
 			this->m_btn_loadobjcts = (gcnew System::Windows::Forms::Button());
 			this->m_btn_normalize1 = (gcnew System::Windows::Forms::Button());
 			this->m_btn_normalize2 = (gcnew System::Windows::Forms::Button());
+			this->m_btn_alignobjs = (gcnew System::Windows::Forms::Button());
+			this->m_btn_calcdiff = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// m_panel
@@ -122,11 +126,35 @@ namespace Simple3DObjectsViewer {
 			this->m_btn_normalize2->UseVisualStyleBackColor = true;
 			this->m_btn_normalize2->Click += gcnew System::EventHandler(this, &MainForm::m_btn_normalize2_Click);
 			// 
+			// m_btn_alignobjs
+			// 
+			this->m_btn_alignobjs->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->m_btn_alignobjs->Location = System::Drawing::Point(168, 579);
+			this->m_btn_alignobjs->Name = L"m_btn_alignobjs";
+			this->m_btn_alignobjs->Size = System::Drawing::Size(127, 36);
+			this->m_btn_alignobjs->TabIndex = 4;
+			this->m_btn_alignobjs->Text = L"Align Objects ICP";
+			this->m_btn_alignobjs->UseVisualStyleBackColor = true;
+			this->m_btn_alignobjs->Click += gcnew System::EventHandler(this, &MainForm::m_btn_alignobjs_Click);
+			// 
+			// m_btn_calcdiff
+			// 
+			this->m_btn_calcdiff->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->m_btn_calcdiff->Location = System::Drawing::Point(168, 618);
+			this->m_btn_calcdiff->Name = L"m_btn_calcdiff";
+			this->m_btn_calcdiff->Size = System::Drawing::Size(127, 36);
+			this->m_btn_calcdiff->TabIndex = 5;
+			this->m_btn_calcdiff->Text = L"Compute Difference";
+			this->m_btn_calcdiff->UseVisualStyleBackColor = true;
+			this->m_btn_calcdiff->Click += gcnew System::EventHandler(this, &MainForm::m_btn_calcdiff_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(708, 661);
+			this->Controls->Add(this->m_btn_calcdiff);
+			this->Controls->Add(this->m_btn_alignobjs);
 			this->Controls->Add(this->m_btn_normalize2);
 			this->Controls->Add(this->m_btn_normalize1);
 			this->Controls->Add(this->m_btn_loadobjcts);
@@ -148,6 +176,8 @@ namespace Simple3DObjectsViewer {
 	private: System::Void m_btn_loadobjcts_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void m_btn_normalize1_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void m_btn_normalize2_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void m_btn_alignobjs_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void m_btn_calcdiff_Click(System::Object^ sender, System::EventArgs^ e) ;
 };
 
 	inline void RedrawMainWindow(){ MainForm::GetInst()->RedrawMainPanel(); }
